@@ -30,7 +30,7 @@
                 password=pass.value;
 
                 $.ajax({
-                    url: "http://localhost/api/login.php",
+                    url: "http://tobuylist.gearhostpreview.com/api/login.php",
                     type: "POST",
                     data: {User: username, Password: password},
                     //on success it will call this function
@@ -40,7 +40,7 @@
                         if(datareturned == "Login Successful.")
                         {
                             alert(datareturned);
-                            window.location = "http://localhost/html/toBuyList.html";
+                            window.location = "http://tobuylist.gearhostpreview.com/html/toBuyList.html";
                         }
                         else
                         {

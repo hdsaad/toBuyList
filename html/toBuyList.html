@@ -16,7 +16,7 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $.ajax({
-                    url: "http://localhost/api/list.php",
+                    url: "http://tobuylist.gearhostpreview.com/api/list.php",
                     type: "POST",
                     data: "params=no",
                     //on success it will call this function
@@ -43,13 +43,13 @@
             }
             task_id=id;
             $.ajax({
-                    url: "http://localhost/api/delete.php",
+                    url: "http://tobuylist.gearhostpreview.com/api/delete.php",
                     type: "POST",
                     data: {task_id: task_id},
                     //on success it will call this function
                     success: function (data)
                     {
-                        window.location = "http://localhost/html/toBuyList.html";
+                        window.location = "http://tobuylist.gearhostpreview.com/html/toBuyList.html";
                     }
             });
         }
@@ -58,13 +58,13 @@
         {
             addTask=document.getElementById("insert").value;
             $.ajax({
-                    url: "http://localhost/api/insert.php",
+                    url: "http://tobuylist.gearhostpreview.com/api/insert.php",
                     type: "POST",
                     data: {addTask: addTask},
                     //on success it will call this function
                     success: function (data)
                     {
-                        window.location = "http://localhost/html/toBuyList.html";
+                        window.location = "http://tobuylist.gearhostpreview.com/html/toBuyList.html";
                     }
             });
         }

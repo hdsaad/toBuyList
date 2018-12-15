@@ -30,7 +30,7 @@
                 password=pass.value;
 
                 $.ajax({
-                    url: "http://localhost/api/register.php",
+                    url: "http://tobuylist.gearhostpreview.com/api/register.php",
                     type: "POST",
                     data: {User: username, Password: password},
                     //on success it will call this function
@@ -44,7 +44,7 @@
                         else
                         {
                             alert("Registration Successful.");
-                            window.location = "http://localhost/html/login.html";
+                            window.location = "http://tobuylist.gearhostpreview.com/html/login.html";
                         }
                     },
                     error(e)

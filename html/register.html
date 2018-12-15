@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=0.41, maximum-scale=1" />
+        <link rel="stylesheet" type="text/css" href="../css/register.css"/>
+        <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+    </head>
+        <body>
+            <div class="container" id="target">
+                <h1>Register</h1>
+                <b>Username: </b>
+                <input type="text" id="username" placeholder="Enter Username" required>
+                <br>
+            
+                <b>Password: </b>
+                <input type="password" id="password" placeholder="Enter Password" required>
+                <br>
+            
+                <button class="login" onclick="Register()">Register</button>
+                <br>
+                <a href="login.html">Already have an account? Sign in here!</a>
+            </div>
+        </body>
+
+        <script type="text/javascript">
+            function Register()
+            {
+                user=document.getElementById("username");
+                username=user.value;
+                pass=document.getElementById("password");
+                password=pass.value;
+
+                $.ajax({
+                    url: "http://localhost/api/register.php",
+                    type: "POST",
+                    data: {User: username, Password: password},
+                    //on success it will call this function
+                    success: function (data) 
+                    {
+                        datareturned=JSON.parse(data);
+                        if(datareturned == "Username is taken.")
+                        {
+                            alert(datareturned);
+                        }
+                        else
+                        {
+                            alert("Registration Successful.");
+                            window.location = "http://localhost/html/login.html";
+                        }
+                    },
+                    error(e)
+                    {
+                        alert("Registration failed");
+                    }
+                });
+            }
+        </script>
+</html>

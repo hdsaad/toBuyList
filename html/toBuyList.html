@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=0.41, maximum-scale=1" />
+        <link rel="stylesheet" type="text/css" href="../css/toBuyList.css"/>
+        <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+        </div>
+        <div class="insert">
+            <button onclick="Insert()">+</button>
+            <input type="text" id="insert" placeholder="Enter item to add to list" required>
+        </div>
+    </body>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $.ajax({
+                    url: "http://localhost/api/list.php",
+                    type: "POST",
+                    data: "params=no",
+                    //on success it will call this function
+                    success: function (data)
+                    {
+                        var DOM = $('.container');
+                        document.getElementsByClassName("DOM").innerHTML = "";
+                        datareturned=JSON.parse(data);
+                        for(a = 0; a < datareturned.length; a++)
+                        {
+                            task=datareturned[a].task;
+                            task_id=datareturned[a].task_id;
+                            DOM.append("<li><p class='taskName'>"+task+"</p><button class='delete' onclick='Delete("+task_id+")'>-</button></li>");
+                        }
+                    }
+            });
+        });
+
+        function Delete(id)
+        {
+            if(!confirm('Are you sure?')){
+                e.preventDefault();
+                return false;
+            }
+            task_id=id;
+            $.ajax({
+                    url: "http://localhost/api/delete.php",
+                    type: "POST",
+                    data: {task_id: task_id},
+                    //on success it will call this function
+                    success: function (data)
+                    {
+                        window.location = "http://localhost/html/toBuyList.html";
+                    }
+            });
+        }
+
+        function Insert()
+        {
+            addTask=document.getElementById("insert").value;
+            $.ajax({
+                    url: "http://localhost/api/insert.php",
+                    type: "POST",
+                    data: {addTask: addTask},
+                    //on success it will call this function
+                    success: function (data)
+                    {
+                        window.location = "http://localhost/html/toBuyList.html";
+                    }
+            });
+        }
+    </script>
+</html>

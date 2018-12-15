@@ -1,0 +1,57 @@
+body{
+    background-image: url("../images/login_background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+}
+
+.container{
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    padding: 10px;
+    top: 30%;
+    background-color: rgb(79, 76, 124);
+    border-radius: 5%;
+    box-shadow: 7px 7px rgb(231, 203, 185);
+    color: #F5BF9D;
+    font-size: 20px;
+    width: 800px;
+    margin-bottom: 20px;
+}
+
+input[type="text"]{
+    padding: 4px;
+    margin-bottom: 10px;
+    border-radius: 5%;
+}
+
+button{
+    margin-right: 3px;
+}
+
+li{
+    display: grid;
+}
+
+.taskName{
+    text-align: left;
+    position: relative;
+    top: 20px;
+}
+
+.delete{
+    width: 30px;
+    height: 30px;
+    position: relative;
+    right: -700px;
+    top: -20px;
+}
+
+button :hover{
+    opacity: 0.4;
+}
+
+#insert{
+    width: 800px;
+}
